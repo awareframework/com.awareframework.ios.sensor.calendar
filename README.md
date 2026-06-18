@@ -1,4 +1,4 @@
-# Aware Calendar
+# AWARE: Calendar
 
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
@@ -21,7 +21,7 @@ iOS 13 or later
     * `NSCalendarsUsageDescription` — required for iOS 16 and earlier.
     * `NSCalendarsFullAccessUsageDescription` — required for iOS 17 and later.
 
-## Public functions
+## Public Functions
 
 ### CalendarSensor
 
@@ -43,12 +43,12 @@ Class to hold the configuration of the sensor.
 + `includeNotes: Bool`: When `false`, event notes are omitted because they often contain sensitive text. (default = `false`)
 + `enabled: Bool`: Sensor is enabled or not. (default = `false`)
 + `debug: Bool`: Enable/disable logging. (default = `false`)
-+ `label: String`: Label for the data. (default = "")
-+ `deviceId: String`: Id of the device associated with the events. (default = "")
-+ `dbEncryptionKey`: Encryption key for the database. (default = `nil`)
-+ `dbType: Engine`: Which db engine to use for saving data. (default = `Engine.DatabaseType.NONE`)
-+ `dbPath: String`: Path of the database. (default = "aware_calendar")
-+ `dbHost: String`: Host for syncing the database. (default = `nil`)
++ `label: String`: Label for the data. (default = `""`)
++ `deviceId: String`: Id of the device associated with the events. (default = `""`)
++ `dbEncryptionKey: String?`: Encryption key for the database. (default = `nil`)
++ `dbType: DatabaseType`: Which db engine to use for saving data. (default = `.none`)
++ `dbPath: String`: Path of the database. (default = `"aware_calendar"`)
++ `dbHost: String?`: Host for syncing the database. (default = `nil`)
 
 ## Broadcasts
 
@@ -93,7 +93,7 @@ Contains metadata for a calendar event.
 | os                     | String | Operating system of the device (iOS)                                        |
 | jsonVersion            | Int    | JSON schema version                                                         |
 
-## Example usage
+## Example Usage
 
 ```swift
 import com_awareframework_ios_sensor_calendar
