@@ -150,21 +150,7 @@ public class CalendarSensor: AwareSensor {
             .setTableName(CalendarData.TABLE_NAME)
             .build()
 
-        let config = DbSyncConfig()
-        config.removeAfterSync = syncConfig.removeAfterSync
-        config.batchSize = syncConfig.batchSize
-        config.markAsSynced = syncConfig.markAsSynced
-        config.skipSyncedData = syncConfig.skipSyncedData
-        config.keepLastData = syncConfig.keepLastData
-        config.deviceId = syncConfig.deviceId
-        config.debug = syncConfig.debug
-        config.debugLevel = syncConfig.debugLevel
-        config.progressHandler = syncConfig.progressHandler
-        config.dispatchQueue = syncConfig.dispatchQueue
-        config.backgroundSession = syncConfig.backgroundSession
-        config.compactDataFormat = syncConfig.compactDataFormat
-        config.serverType = syncConfig.serverType
-        config.test = syncConfig.test
+        let config = syncConfig.copy()
         config.completionHandler = { [weak self] status, error in
             guard let self else { return }
             var userInfo: [String: Any] = [
